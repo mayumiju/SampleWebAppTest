@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: samplewebapp
+spec:
+  selector:
+    matchLabels:
+      app: samplewebapp
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: samplewebapp
+    spec:
+      containers:
+        - name: samplewebapp
+          image: juliamayt/samplewebapp:latest
+          ports:
+            - name: sampleapp-port
+              containerPort: 8080
